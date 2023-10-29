@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Web Page</title>
+</head>
+<body>
+ <!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sustainability Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .question {
+      margin-bottom: 10px;
+    }
+
+    .answer {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .submit-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Sustainability Quiz</h1>
+    <div class="question">
+      <p>1. What is the definition of sustainability?</p>
+      <input type="radio" name="answer1" value="a" id="answer1-a">
+      <label for="answer1-a">a) The ability to sustain a resource indefinitely without depleting it</label><br>
+      <input type="radio" name="answer1" value="b" id="answer1-b">
+      <label for="answer1-b">b) The ability to sustain a resource for a limited period of time</label><br>
+      <input type="radio" name="answer1" value="c" id="answer1-c">
+      <label for="answer1-c">c) The ability to sustain a resource but depleting it over time</label>
+    </div>
+    <div class="question">
+      <p>2. Which of the following is an example of renewable energy?</p>
+      <input type="radio" name="answer2" value="a" id="answer2-a">
+      <label for="answer2-a">a) Coal</label><br>
+      <input type="radio" name="answer2" value="b" id="answer2-b">
+      <label for="answer2-b">b) Solar power</label><br>
+      <input type="radio" name="answer2" value="c" id="answer2-c">
+      <label for="answer2-c">c) Natural gas</label>
+    </div>
+    <div class="question">
+      <p>3. Which of the following is a sustainable practice?</p>
+      <input type="radio" name="answer3" value="a" id="answer3-a">
+      <label for="answer3-a">a) Deforestation</label><br>
+      <input type="radio" name="answer3" value="b" id="answer3-b">
+      <label for="answer3-b">b) Recycling</label><br>
+      <input type="radio" name="answer3" value="c" id="answer3-c">
+      <label for="answer3-c">c) Water pollution</label>
+    </div>
+    <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      var answers = {
+        answer1: document.querySelector('input[name="answer1"]:checked').value,
+        answer2: document.querySelector('input[name="answer2"]:checked').value,
+        answer3: document.querySelector('input[name="answer3"]:checked').value,
+      };
+
+      var correctAnswers = {
+        answer1: 'a',
+        answer2: 'b',
+        answer3: 'b',
+      };
+
+      var score = 0;
+
+      if (answers.answer1 === correctAnswers.answer1) {
+        score++;
+      }
+
+      if (answers.answer2 === correctAnswers.answer2) {
+        score++;
+      }
+
+      if (answers.answer3 === correctAnswers.answer3) {
+        score++;
+      }
+
+      document.getElementById('result').innerHTML = 'Your score: ' + score + '/3';
+    }
+  </script>
+</body>
+
+</html>
+</body>
+</html>

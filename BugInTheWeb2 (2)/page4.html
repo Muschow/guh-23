@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Page</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: yellow;
+    }
+
+    p {
+      color: green;
+    }
+
+    a {
+      color: cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>404 NOT FOUND</h1>
+  <p>Find out more at our <a href="index.html" target="_blank">website</a>.</p>
+
+  <div class="contact-form">
+    <form id="contactForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name">
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Message"></textarea>
+      </div>
+      <div>
+        <button type="submit" id="submitButton">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const submitButton = document.getElementById("submitButton");
+
+    submitButton.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      // Apply CSS transformation to turn the website upside down
+      document.body.classList.add("upside-down");
+
+      // Reset the transformation and navigate to "don't care.html" after 3 seconds
+      setTimeout(function () {
+        document.body.classList.remove("upside-down");
+        window.location.href = "care.html";
+      }, 3000); // 3 seconds delay
+    });
+  </script>
+
+  <style>
+    .upside-down {
+      transform: rotate(180deg);
+      transition: transform 2s ease;
+    }
+  </style>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Names Animation</title>
+  <style>
+    @keyframes spin {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .name {
+      position: absolute;
+      animation: spin 5s linear infinite;
+    }
+
+    .name:nth-child(1) {
+      top: 20%;
+      left: 50%;
+    }
+
+    .name:nth-child(2) {
+      top: 50%;
+      left: 80%;
+    }
+
+    .name:nth-child(3) {
+      top: 80%;
+      left: 50%;
+    }
+
+    .name:nth-child(4) {
+      top: 50%;
+      left: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="name">Ronnie</div>
+  <div class="name">Harvey</div>
+  <div class="name">John</div>
+  <div class="name">Muschow</div>
+</body>
+
+<style>
+  #backToHome {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  #backToHome:hover {
+    transform: rotate(720deg);
+  }
+</style>
+
+<body>
+  <button id="backToHome" onclick="goToHome()">Home</button>
+
+  <script>
+    function goToHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+<html>
+
+<head>
+  <title>Randomoly changing Website colour</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    function changeColor() {
+      var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      document.body.style.backgroundColor = randomColor;
+    }
+    setInterval(changeColor, 1000); // Change color every 1 second
+  </script>
+
+
+
+</html>

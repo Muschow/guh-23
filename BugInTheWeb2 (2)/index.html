@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Goofy Homepage</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      margin: 0;
+      padding: 0;
+      background-color: #ffcc00;
+    }
+
+    #title {
+      text-align: center;
+      color: yellow;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: underline;
+      animation: spin 2s linear infinite;
+      /* Added animation */
+    }
+
+    /* Added keyframes for spin animation */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    header {
+      background-color: #ff6666;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #ff6666;
+      color: #fff;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #ff99cc;
+      border: 5px dashed #ff0066;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #ff6666;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <title>Black Screen Navigation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <footer>
+  </footer>
+  <header>
+    <h1 id="title">Welcome to My Goofy Homepage</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="page1.html">About Me</a></li>
+      <li><a href="page2.html">Books</a></li>
+      <li><a href="page3.html">Crazy Cat Facts!</a></li>
+      <li><a href="page4.html">Contact Us</a></li>
+      <li><a href="normal.html">Normal™</a></li>
+      <li><a href="goofy_sustainability.html">Sustainability</li>
+      <li><a href="Credits.html">Credits</a></li>
+
+    </ul>
+  </nav>
+  <main>
+    <h2>Explore the Goofy Pages</h2>
+    <p>Here you can navigate to different goofy pages. Enjoy the silliness! Login for secret page!</p>
+    <style>
+      .form-container {
+        width: 300px;
+        margin: 10px auto;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        width: 100%;
+        font-size: 18px;
+        transform: scale(1) rotate(0deg);
+        transition: all 0.5s;
+      }
+    </style>
+    <div class="form-container">
+      <h2>Username</h2>
+      <input type="text" id="user-input" placeholder="Type a character">
+    </div>
+    <div class="form-container">
+      <h2>Password</h2>
+      <input type="text" id="password" placeholder="Type a character">
+    </div>
+
+    <script>
+      const userInput = document.getElementById('user-input');
+
+      userInput.addEventListener('input', () => {
+        const rotation = Math.random() * 90 - 45; // Rotate between -45 to 45 degrees
+        const scaleX = Math.random() * 1.5; // Scale between 1 to 2.5
+        const scaleY = Math.random() * 1.5; // Scale between 1 to 2.5
+
+        userInput.style.transform = `scale(${scaleX}, ${scaleY}) rotate(${rotation}deg)`;
+      });
+    </script>
+    <script>
+      const passInput = document.getElementById('password');
+
+      passInput.addEventListener('input', () => {
+        const rotation = Math.random() * 90 - 45; // Rotate between -45 to 45 degrees
+        const scaleX = Math.random() * 1.5; // Scale between 1 to 2.5
+        const scaleY = Math.random() * 1.5; // Scale between 1 to 2.5
+
+        passInput.style.transform = `scale(${scaleX}, ${scaleY}) rotate(${rotation}deg)`;
+      });
+    </script>
+    <style>
+      .login-button {
+        background-color: #0077b6;
+        /* Button background color */
+        color: #fff;
+        /* Text color */
+        border: none;
+        padding: 20px 20px;
+        /* Padding for the button */
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+        text-decoration: none;
+        /* Remove the default underline for anchor element */
+      }
+    </style>
+    <a class="login-button" href="captcha.html">Login</a>
+
+  </main>
+
+  <footer>
+
+    <p>&copy; 2023 My Goofy Homepage</p>
+  </footer>
+</body>
+
+</html>

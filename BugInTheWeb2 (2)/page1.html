@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>About Me - The Really Cool Guy</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #292929;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #ff5733;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .cool-guy-image {
+      position: absolute;
+    }
+
+    .cool-guy-image-1 {
+      animation: moveDiagonal1 5s linear infinite;
+    }
+
+    .cool-guy-image-2 {
+      animation: moveDiagonal2 7s linear infinite;
+    }
+
+    .cool-guy-image-3 {
+      animation: moveDiagonal3 4s linear infinite;
+    }
+
+    @keyframes moveDiagonal1 {
+      0% {
+        top: 0;
+        left: 0;
+      }
+
+      25% {
+        top: 25%;
+        left: 25%;
+      }
+
+      50% {
+        top: 50%;
+        left: 50%;
+      }
+
+      75% {
+        top: 75%;
+        left: 75%;
+      }
+
+      100% {
+        top: 100%;
+        left: 100%;
+      }
+    }
+
+    @keyframes moveDiagonal2 {
+      0% {
+        top: 0;
+        left: 100%;
+      }
+
+      25% {
+        top: 25%;
+        left: 75%;
+      }
+
+      50% {
+        top: 50%;
+        left: 50%;
+      }
+
+      75% {
+        top: 75%;
+        left: 25%;
+      }
+
+      100% {
+        top: 100%;
+        left: 0;
+      }
+    }
+
+    @keyframes moveDiagonal3 {
+      0% {
+        top: 100%;
+        left: 0;
+      }
+
+      25% {
+        top: 75%;
+        left: 25%;
+      }
+
+      50% {
+        top: 50%;
+        left: 50%;
+      }
+
+      75% {
+        top: 25%;
+        left: 75%;
+      }
+
+      100% {
+        top: 0;
+        left: 100%;
+      }
+    }
+
+    .back-to-home {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 150px;
+      /* Set the width */
+      height: 50px;
+      /* Set the height */
+      background-color: #0077b6;
+      /* Background color */
+      color: #fff;
+      /* Text color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: transform 0.5s;
+    }
+
+    .back-to-home:hover {
+      transform: translateX(50px) translateY(50px);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>About Me - The Really Cool Guy</h1>
+  </header>
+  <main>
+    <p>I'm the coolest person you'll ever meet. People always say I'm really cool, and I can't help but agree! I mean,
+      look at these shades:</p>
+    <img src="images/image1.jpg" class="cool-guy-image cool-guy-image-1" alt="Cool Guy 1" width="200" height="200">
+    <img src="images/image2.webp" class="cool-guy-image cool-guy-image-2" alt="Cool Guy 2" width="200" height="200">
+    <img src="images/image3.jpg" class="cool-guy-image cool-guy-image-3" alt="Cool Guy 3" width="200" height="200">
+    <p>Don't you wish you were as cool as me? Well, you can't, but you can hang out here and soak up the coolness!</p>
+  </main>
+  <a href="index.html" class="back-to-home" id="backButton">Back to Homepage</a>
+
+  <script>
+    const backButton = document.getElementById('backButton');
+
+    backButton.addEventListener('mousemove', () => {
+      const maxX = window.innerWidth - backButton.offsetWidth;
+      const maxY = window.innerHeight - backButton.offsetHeight;
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+      backButton.style.left = randomX + 'px';
+      backButton.style.top = randomY + 'px';
+    });
+  </script>
+</body>
+
+</html>

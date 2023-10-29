@@ -1,0 +1,26 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #FF9900;
+}
+
+.cat-fact {
+    background-color: #FFCC99;
+    padding: 20px;
+    border: 2px solid #FF9900;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+button {
+    background-color: #FF9900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

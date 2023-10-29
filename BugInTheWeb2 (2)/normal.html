@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>=Normal Webpage™</title>
+  <link rel="stylesheet" href="normal-styles.css">
+  <style>
+    #loadingBar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="moveButton" onclick="moveButton()">Home</button>
+  <div class="sidebar">
+    <h3 style="color:white; padding: 1px;">Here is the misleading sidebar...</h3>
+    <ul>
+      <li><a href="page4.html">About Me</a></li>
+      <li><a href="page1.html">Books</a></li>
+      <li><a href="page2.html">Crazy Cat Facts!</a></li>
+      <li><a href="page3.html">Contact Us</a></li>
+
+    </ul>
+  </div>
+  <div id="navtop">
+    <button id="showButton" onclick="showMoveButton(), showLoadingBar()">Home</button>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="review.html">Reviews</a>
+    <button onclick="toggleSidebar()">More</button>
+  </div>
+  <main>
+    <section class="block block--dark block--skewed-left hero">
+      <div class="container grid grid--1x2">
+        <header class="block__header hero__content">
+          <h1 class="block__heading">Welcome to Normal Webpage™</h1>
+          <p class="hero__tagline">
+            The most Normal Experience™ on the internet
+          </p>
+        </header>
+        <picture>
+          <source type="image/webp" srcset="images/banner.webp 1x, images/banner@2x.webp 2x" />
+          <source type="image/png" srcset="images/banner.png 1x, images/banner@2x.png 2x" />
+          <img class="hero__image" src="images/banner.png" alt="" />
+        </picture>
+      </div>
+    </section>    
+    <div id="main-content">
+    <section>
+      <h2>About this website</h2>
+      <p><b>Blood</b>, <b>sweat</b> and <b>tears</b> have been poured into this website with the aims of providing most <i>normal</i> user
+        experience.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="services">Services</h2>
+      <ul>
+        <li>Crazy Cat Facts</li>
+        <li>Secure Validation Methods</li>
+        <li>Bountiful Collection of Books (see misleading sidebar)</li>
+        <li>Guarenteed Inuitive Designs</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="contact">Contact</h2>
+      <p>Don't contacts us.</p>
+    </section>
+  </div>
+  </main>
+
+  <footer>
+    <p id="copyright">&copy; 2023 Normal Webpage™</p>
+  </footer>
+  <div id="loadingBar">Loading: 0%</div>
+  <script src="script.js">
+  </script>
+</body>
+
+</html>

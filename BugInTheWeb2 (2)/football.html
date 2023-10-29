@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pong Game</title>
+    <style>
+        #gameArea {
+            width: 600px;
+            height: 400px;
+            background-color: black;
+            position: relative;
+        }
+
+        .paddle {
+            width: 10px;
+            height: 60px;
+            background-color: white;
+            position: absolute;
+        }
+
+        #paddleA {
+            left: 0;
+            top: 170px;
+        }
+
+        #paddleB {
+            right: 0;
+            top: 170px;
+        }
+
+        #ball {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            position: absolute;
+            top: 195px;
+            left: 295px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameArea">
+        <div class="paddle" id="paddleA"></div>
+        <div class="paddle" id="paddleB"></div>
+        <div id="ball"></div>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById("gameArea");
+        const paddleA = document.getElementById("paddleA");
+        const paddleB = document.getElementById("paddleB");
+        const ball = document.getElementById("ball");
+
+        let ballX = 295;
+        let ballY = 195;
+        let ballSpeedX = 2; // Slower X speed
+        let ballSpeedY = 2; // Slower Y speed
+
+        function updateGameArea() {
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+            // Ball collision with top and bottom boundaries
+            if (ballY <= 0 || ballY >= gameArea.clientHeight - ball.clientHeight) {
+                ballSpeedY = -ballSpeedY;
+            }
+
+            // Ball collision with paddles
+            if (ballX <= paddleA.clientWidth && ballY >= paddleA.offsetTop && ballY <= paddleA.offsetTop + paddleA.clientHeight) {
+                ballSpeedX = -ballSpeedX;
+                // Move the ball away from the paddle to prevent multiple collisions
+                ballX = paddleA.clientWidth;
+            }
+            if (ballX >= gameArea.clientWidth - paddleB.clientWidth - ball.clientWidth && ballY >= paddleB.offsetTop && ballY <= paddleB.offsetTop + paddleB.clientHeight) {
+                ballSpeedX = -ballSpeedX;
+                // Move the ball away from the paddle to prevent multiple collisions
+                ballX = gameArea.clientWidth - paddleB.clientWidth - ball.clientWidth;
+            }
+
+            // Ball out of bounds
+            if (ballX <= 0 || ballX >= gameArea.clientWidth - ball.clientWidth) {
+                // Reset the ball
+                ballX = 295;
+                ballY = 195;
+            }
+
+            ball.style.left = ballX + "px";
+            ball.style.top = ballY + "px";
+
+            requestAnimationFrame(updateGameArea);
+        }
+
+        // Start the game
+        requestAnimationFrame(updateGameArea);
+
+        // Add keyboard controls
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowUp" && paddleB.offsetTop > 0) {
+                paddleB.style.top = paddleB.offsetTop - 10 + "px";
+            }
+            if (event.key === "ArrowDown" && paddleB.offsetTop < gameArea.clientHeight - paddleB.clientHeight) {
+                paddleB.style.top = paddleB.offsetTop + 10 + "px";
+            }
+        });
+    </script>
+</body>
+</html>

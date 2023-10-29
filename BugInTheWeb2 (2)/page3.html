@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Crazy Cat Trivia</title>
+  <link rel="stylesheet" type="text/css" href="catstyles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Crazy Cat Trivia</h1>
+  </header>
+  <main>
+    <section class="cat-fact">
+      <h2>Random Cat Fact:</h2>
+      <p id="fact">Press the button for a silly cat fact!</p>
+      <button onclick="generateCatFact()">Get Cat Fact</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Crazy Cat Trivia</p>
+  </footer>
+  <script src="script.js"></script>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <style>
+      /* Styles for the container */
+      .container {
+        text-align: center;
+      }
+
+      /* Styles for the buttons */
+      .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      /* Styles for the "Yes" button */
+      #yes-button {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      /* Styles for the "No" button */
+      #no-button {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 id="question">Do you love kittens?</h1>
+      <button class="button" id="yes-button">Yes</button>
+      <button class="button" id="no-button">No</button>
+      <p id="result"></p>
+      <p id="counter">Number of people that love kittens: 0</p>
+    </div>
+
+    <script>
+      let likeScootersCount = 0;
+
+      // Function to handle hovering over the "Yes" button
+      document.getElementById('yes-button').addEventListener('mouseover', function () {
+        document.getElementById('question').textContent = 'DO YOU WANT TO MURDER A KITTEN?';
+      });
+
+      // Function to handle when the mouse leaves the "Yes" button
+      document.getElementById('yes-button').addEventListener('mouseout', function () {
+        document.getElementById('question').textContent = 'Do you love kittens?';
+      });
+
+      // Function to handle clicking the "Yes" button
+      document.getElementById('yes-button').addEventListener('click', function () {
+        likeScootersCount++;
+        updateCounter();
+        showGif2();
+      });
+
+      // Function to update the counter text
+      function updateCounter() {
+        const counterElement = document.getElementById('counter');
+        counterElement.textContent = `Number of kittens murdered: ${likeScootersCount}`;
+        if (likeScootersCount == 3) {
+          showPopup('Triple Kill!', 3000);
+        }
+        else if (likeScootersCount == 6) {
+          showPopup('HEADSHOT!', 3000);
+        }
+        else if (likeScootersCount == 10) {
+          showPopup('Squad Wipe!', 3000);
+        }
+        else if (likeScootersCount == 20) {
+          showPopup('DOMINATING!', 3000);
+        }
+        else if (likeScootersCount == 30) {
+          showPopup("Tactical Nuke INCOMING");
+        }
+        else if (likeScootersCount == 50) {
+          showPopup("Halfway there!");
+        }
+        else if (likeScootersCount == 100) {
+          showPopup("ACHIEVEMENT UNLOCKED: The Big 100!", 3000);
+        }
+      }
+
+      // Function to handle clicking the "No" button
+      document.getElementById('no-button').addEventListener('click', function () {
+        document.getElementById('counter').textContent = 'YOU MONSTER';
+        showGif();
+      });
+    </script>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+      <style>
+        /* Styles for the container */
+        .container {
+          text-align: center;
+          margin-top: 50px;
+
+        }
+
+        /* Styles for the GIF */
+        #gif {
+          display: none;
+          /* Initially hidden */
+          max-width: 100%;
+          margin-left: 30%;
+
+        }
+      </style>
+    </head>
+
+    <body>
+      <div class="container">
+        <div id="gif-container">
+          <img id="gif" src="images/cat-cat-crying.gif" alt="GIF">
+        </div>
+      </div>
+
+      <script>
+        function showGif() {
+          const gif = document.getElementById('gif');
+          gif.style.display = 'block'; // Display the GIF
+          document.getElementById('gif2').style.display = 'none';
+        }
+      </script>
+
+      <head>
+        <style>
+          /* Styles for the container */
+          .container {
+            text-align: center;
+            margin-top: 50px;
+          }
+
+          /* Styles for the GIF */
+          #gif2 {
+            display: none;
+            /* Initially hidden */
+            max-width: 100%;
+            margin-left: 45%;
+            justify-content: center;
+            align-items: center;
+          }
+        </style>
+      </head>
+
+      <body>
+        <div class="container">
+          <div id="gif-container">
+            <img id="gif2" src="images/meme-cat-cat-meme.gif" alt="GIF">
+          </div>
+        </div>
+
+        <script>
+          function showGif2() {
+            const gif = document.getElementById('gif2');
+            gif.style.display = 'block'; // Display the GIF
+            document.getElementById('gif').style.display = 'none';
+          }
+        </script>
+
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+          <style>
+            /* Styles for the pop-up container */
+            .popup-container {
+              display: none;
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background-color: rgba(0, 0, 0, 1);
+              color: white;
+              padding: 20px;
+              text-align: center;
+              border-radius: 0px;
+              z-index: 1000;
+            }
+          </style>
+        </head>
+
+        <body>
+          <div class="popup-container" id="popup-container"></div>
+
+          <script>
+            // Function to show a pop-up with custom text for a few seconds
+            function showPopup(text, duration = 3000) {
+              const popupContainer = document.getElementById('popup-container');
+              popupContainer.textContent = text;
+              popupContainer.style.display = 'block';
+
+              setTimeout(() => {
+                popupContainer.style.display = 'none';
+                popupContainer.textContent = '';
+              }, duration);
+            }
+
+            // Example of using the function
+             // Display for 3 seconds
+          </script>
+        </body>
+
+        </html>
+
+      </body>
+
+    </body>
+
+    </html>
+
+  </body>
+
+  </html>
+
+</body>
+
+</html>

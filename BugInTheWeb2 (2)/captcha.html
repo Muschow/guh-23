@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Captcha: Complete the maze to prove you're human</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #maze {
+      width: 400px;
+      height: 400px;
+      background-color: #fff;
+      border: 2px solid #000;
+      position: relative;
+    }
+
+    #user {
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border-radius: 50%;
+    }
+
+    .wall {
+      background-color: #000;
+      position: absolute;
+    }
+
+    #end {
+      background-color: green;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 250px;
+      left: 260px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Captcha: Are you human?</h1>
+  <p>Use your mouse to navigate the red square through the challenging maze. Reach the green box at the center to prove
+    you're not a robot!
+  </p>
+  <div id="maze">
+    <div id="user"></div>
+    <!-- Walls -->
+    <div class="wall" style="top: 50px; left: 50px; width: 300px; height: 10px;"></div>
+    <div class="wall" style="top: 100px; left: 50px; width: 10px; height: 200px;"></div>
+    <div class="wall" style="top: 100px; left: 240px; width: 10px; height: 100px;"></div>
+    <div class="wall" style="top: 290px; left: 50px; width: 320px; height: 10px;"></div>
+    <div class="wall" style="top: 150px; left: 150px; width: 10px; height: 140px;"></div>
+    <!-- More walls... -->
+    <div class="wall" style="top: 150px; left: 290px; width: 10px; height: 100px;"></div>
+    <div class="wall" style="top: 250px; left: 150px; width: 10px; height: 70px;"></div>
+    <div class="wall" style="top: 250px; left: 290px; width: 10px; height: 70px;"></div>
+    <div class="wall" style="top: 180px; left: 50px; width: 160px; height: 10px;"></div>
+    <div class="wall" style="top: 220px; left: 220px; width: 150px; height: 10px;"></div>
+    <div class="wall" style="top: 220px; left: 220px; width: 10px; height: 40px;"></div>
+    <!-- More walls... -->
+    <div class="wall" style="top: 220px; left: 290px; width: 10px; height: 60px;"></div>
+    <div id="end"></div>
+  </div>
+
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <style>
+      /* Style for the popup container */
+      .popup-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 2px solid #000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- The popup container -->
+    <div id="popup" class="popup-container">
+      <p>You Win</p>
+    </div>
+
+    <script>
+      // Function to show the popup
+      function showPopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "block";
+
+        // Close the popup after 3 seconds (3000 milliseconds)
+        setTimeout(function () {
+          popup.style.display = "none";
+        }, 3000);
+      }
+    </script>
+
+  </body>
+
+  </html>
+
+
+  <script>
+    const maze = document.getElementById('maze');
+    const user = document.getElementById('user');
+    const walls = document.querySelectorAll('.wall');
+    const end = document.getElementById('end');
+    let isDragging = false;
+
+    user.addEventListener('mousedown', () => {
+      isDragging = true;
+    });
+
+    maze.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        const mazeRect = maze.getBoundingClientRect();
+        const x = e.clientX - mazeRect.left - user.offsetWidth / 2;
+        const y = e.clientY - mazeRect.top - user.offsetHeight / 2;
+
+        user.style.left = x + 'px';
+        user.style.top = y + 'px';
+
+        // Check for collisions with walls
+        for (const wall of walls) {
+          const wallRect = wall.getBoundingClientRect();
+          const userRect = user.getBoundingClientRect();
+
+          if (
+            userRect.right >= wallRect.left &&
+            userRect.left <= wallRect.right &&
+            userRect.bottom >= wallRect.top &&
+            userRect.top <= wallRect.bottom
+          ) {
+            // Collision with a wall - restart
+
+            user.style.left = '10px';
+            user.style.top = '10px';
+
+          }
+        }
+
+        // Check for reaching the end
+        const userRect = user.getBoundingClientRect();
+        const endRect = end.getBoundingClientRect();
+
+        if (
+          userRect.right >= endRect.left &&
+          userRect.left <= endRect.right &&
+          userRect.bottom >= endRect.top &&
+          userRect.top <= endRect.bottom
+        ) {
+          showPopup()
+          window.location.href = "page5.html";
+          // You can redirect to the next webpage here.
+          // window.location.href = 'your_next_webpage.html';
+        }
+      }
+    });
+
+    maze.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  </script>
+</body>
+
+</html>

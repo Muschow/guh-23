@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cookie Clicker Game</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    #cookie {
+      width: 200px;
+      height: 200px;
+      background-image: url('images/cookie.jpg');
+      /* You can replace 'cookie.png' with your cookie image */
+      background-size: cover;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    #info {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Cookie Clicker Game</h1>
+  <p id="info">Cookies: 0</p>
+  <div id="cookie"></div>
+
+  <script>
+    let cookies = 0;
+    let cookiesPerClick = 1;
+
+    // Update the cookies count and display it
+    function updateCookies() {
+      document.getElementById("info").textContent = `Cookies: ${cookies}`;
+    }
+
+    // When the cookie is clicked
+    document.getElementById("cookie").addEventListener("click", function () {
+      cookies += cookiesPerClick;
+      updateCookies();
+    });
+
+    // Function to buy an autoclicker
+    function buyAutoClicker() {
+      const autoClickerCost = Math.pow(10, cookiesPerClick);
+      if (cookies >= autoClickerCost) {
+        cookies -= autoClickerCost;
+        cookiesPerClick++;
+        updateCookies();
+      }
+    }
+
+    // Create a button to buy an autoclicker
+    const buyAutoClickerButton = document.createElement("button");
+    buyAutoClickerButton.textContent = "Buy AutoClicker";
+    buyAutoClickerButton.addEventListener("click", buyAutoClicker);
+    document.body.appendChild(buyAutoClickerButton);
+
+    // Auto-click cookies based on the autoclicker level
+    function autoClick() {
+      cookies += cookiesPerClick;
+      updateCookies();
+    }
+
+    // Set an interval to autoclick
+    setInterval(autoClick, 1000);
+
+    // Initial update
+    updateCookies();
+  </script>
+</body>
+
+</html>

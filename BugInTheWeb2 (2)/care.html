@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horrible Web Page</title>
+    <style>
+        body {
+            background-color: red;
+            color: white;
+            font-family: "Comic Sans MS", cursive;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 5em;
+            position: absolute;
+            animation: moveText 5s infinite;
+        }
+
+        @keyframes moveText {
+            0% {
+                top: 10%;
+                left: 10%;
+            }
+            25% {
+                top: 10%;
+                left: 90%;
+            }
+            50% {
+                top: 90%;
+                left: 90%;
+            }
+            75% {
+                top: 90%;
+                left: 10%;
+            }
+            100% {
+                top: 10%;
+                left: 10%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>We don't care</h1>
+
+    <button id="homeButton">Home</button>
+
+    <script>
+        const homeButton = document.getElementById("homeButton");
+
+        homeButton.addEventListener("click", function() {
+            alert("Nice try Robot");
+            setTimeout(function() {
+                window.location.href = "captcha.html";
+            }, 2000); // 2 seconds delay
+        });
+    </script>
+</body>
+</html>
